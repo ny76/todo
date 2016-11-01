@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <title>Todo App - {% block title %}Main{% endblock %}</title>
+    {% endblock %}
+    <script type='text/javascript'>
+
+function disable(container, id) {
+  var el = container.querySelector('#' + id);
+
+  if(el) el.disabled = true; 
+}
+
+function show(container, id) {
+  var el = container.querySelector('#' + id);
+  
+  if(el) el.style.display = ''; 
+}
+
+function hide(container, id) {
+  var el = container.querySelector('#' + id);
+  
+  if(el) el.style.display = 'none'; 
+}
+
+    </script>
+</head>
+<body>
+<section id='header' style='height: 50px;'>
+    <a id='show_home' href='/home'>HOME</a>
+    <a id='show_add' href='/add'>ADD</a>
+    
+    <a id='dev' href='/dev' style='margin-left: 200px;'>DEV</a>
+    <a id='shutdown' href='/shutdown' style='margin-left: 12px;'>STOP SRV</a>
+</section>
+    <div id="main">{% block main %}{% endblock %}</div>
+    <div id="footer">
+        {% block footer %}
+        {% endblock %}
+    </div>
+</body>
+</html>

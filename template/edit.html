@@ -1,0 +1,37 @@
+{% extends "main.html" %}
+{% block title %}Edit Note{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block main %}
+<form name='form_{{act}}' method='post' action='/data' 
+  onsubmit="javascript: 
+    disable(this, 'cmd_{{act}}'); 
+    show(this, 'wait_{{act}}'); 
+    setTimeout('document.forms[\'form_{{act}}\'].submit();', 1600);
+    return false;
+    "
+>
+<div id='win' style='margin-top: 20px;'>
+    <div style='vertical-align: middle;'>task: 
+    <input name='task' class='inp' value='{{task}}' /></div>
+    <div style='vertical-align: middle;'>priority:&nbsp;&nbsp;1
+    <input name='priority' type='range' class='inp' defaultValue='1' min='1' max='5' value='{{priority or 1}}' />5</div>
+</div>
+<br>
+  {{missing}}
+<br>
+<input name='act' type='hidden' value='{{act}}' />
+<input name='id' type='hidden' value='{{id}}' />
+<input id='cmd_{{act}}' name='cmd' type='submit' class='dis' value='SAVE' />&nbsp;&nbsp;
+<span id='wait_{{act}}'>waiting...</span>
+
+<script type='text/javascript'>
+hide(document, 'wait_{{act}}');
+</script>
+</form>
+{% endblock %}
+

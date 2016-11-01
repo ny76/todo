@@ -1,0 +1,32 @@
+section, div {
+    border: solid 1px navy;
+    padding: 2px;
+}
+#header {
+    height: 50px;
+}
+#center {
+    height: 550px;
+}
+#main {
+    height: 98%;
+}
+#footer {
+    height: 50px;
+}
+
+.inp {
+    display: inline-block;
+    vertical-align: middle;
+    width: 300px;
+    height: 20px;
+}
+.dis {
+    display: block;
+}
+.nodis {
+    display: none;
+}
+.in {
+    display: inline-block;
+}

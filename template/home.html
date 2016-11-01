@@ -1,0 +1,17 @@
+{% extends "main.html" %}
+{% block title %}Home{% endblock %}
+
+{% block main %}
+
+  {% for item in rows or {} %}
+    <div style='vertical-align: middle;'>
+      <span>{{item.task}}</span> 
+      (<span>{{item.priority}}</span>)  
+      <a href='edit/{{item._id}}'>EDIT</a>
+      <a href='delete/{{item._id}}'>DELETE</a>
+    </div>
+  {% endfor %}
+
+{% endblock main %}
+
+
